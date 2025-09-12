@@ -35,8 +35,7 @@ class _BusinessSearchScreenState extends State<BusinessSearchScreen> {
       ),
       body: Column(
         children: [
-         const SearchBarWidget(),
-          const CategoryFilterWidget(),
+          const SearchBarWidget(),
           Expanded(
             child: _buildContent(),
           ),
@@ -150,11 +149,3 @@ class _BusinessSearchScreenState extends State<BusinessSearchScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-

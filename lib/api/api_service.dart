@@ -10,9 +10,7 @@ class BusinessService {
 
   Future<List<Business>> fetchBusinesses() async {
     try {
-      // Simulate loading from local JSON file using Dio
       final response = await _loadLocalJsonData();
-      
       final List<dynamic> jsonData = json.decode(response.data);
       return jsonData.map((json) => Business.fromJson(json)).toList();
     } catch (e) {
