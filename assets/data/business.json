@@ -1,0 +1,70 @@
+  
+
+   [
+     {
+       "id": "1",
+       "name": "Tech Solutions Inc",
+       "category": "Technology",
+       "address": "123 Main St, Port Harcourt, Rivers State",
+       "phone": "+234-803-123-4567",
+       "email": "info@techsolutions.com",
+       "services": ["Web Development", "Mobile Apps", "IT Consulting", "Cloud Services"],
+       "rating": 4.8,
+       "description": "Leading technology company providing innovative solutions for businesses."
+     },
+     {
+       "id": "2",
+       "name": "Green Garden Restaurant",
+       "category": "Restaurant",
+       "address": "456 Garden Ave, Port Harcourt, Rivers State",
+       "phone": "+234-803-987-6543",
+       "email": "orders@greengarden.com",
+       "services": ["Fine Dining", "Catering", "Takeaway", "Private Events"],
+       "rating": 4.5,
+       "description": "Authentic Nigerian cuisine with a modern twist in a beautiful garden setting."
+     },
+     {
+       "id": "3",
+       "name": "Wellness Spa & Clinic",
+       "category": "Health & Beauty",
+       "address": "789 Wellness Blvd, Port Harcourt, Rivers State",
+       "phone": "+234-803-555-7890",
+       "email": "book@wellnessspa.com",
+       "services": ["Massage Therapy", "Facial Treatments", "Body Treatments", "Medical Spa"],
+       "rating": 4.7,
+       "description": "Premier spa and wellness center offering relaxation and medical beauty treatments."
+     },
+     {
+       "id": "4",
+       "name": "AutoCare Garage",
+       "category": "Automotive",
+       "address": "321 Mechanic St, Port Harcourt, Rivers State",
+       "phone": "+234-803-444-1234",
+       "email": "service@autocare.com",
+       "services": ["Car Repair", "Oil Change", "Tire Services", "Engine Diagnostics"],
+       "rating": 4.3,
+       "description": "Professional automotive services with certified mechanics and quality parts."
+     },
+     {
+       "id": "5",
+       "name": "Bright Minds Academy",
+       "category": "Education",
+       "address": "555 Education Lane, Port Harcourt, Rivers State",
+       "phone": "+234-803-222-8888",
+       "email": "admissions@brightminds.edu",
+       "services": ["Primary Education", "Secondary Education", "Tutoring", "Exam Preparation"],
+       "rating": 4.9,
+       "description": "Excellence in education with experienced teachers and modern facilities."
+     },
+     {
+       "id": "6",
+       "name": "Fashion Forward Boutique",
+       "category": "Fashion",
+       "address": "777 Style Street, Port Harcourt, Rivers State",
+       "phone": "+234-803-333-9999",
+       "email": "hello@fashionforward.com",
+       "services": ["Women's Clothing", "Men's Clothing", "Accessories", "Personal Styling"],
+       "rating": 4.4,
+       "description": "Trendy fashion boutique offering the latest styles and personalized shopping experience."
+     }
+   ]
