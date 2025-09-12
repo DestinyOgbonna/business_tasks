@@ -1,7 +1,6 @@
 import 'package:busniess_search/features/business_search/data/business_search_provider.dart';
 import 'package:busniess_search/features/business_search/presentation/widgets/business_card_widget.dart';
 import 'package:busniess_search/features/business_search/presentation/widgets/business_details_bottomsheet.dart';
-import 'package:busniess_search/features/business_search/presentation/widgets/categories_widget.dart';
 import 'package:busniess_search/features/business_search/presentation/widgets/search_bar_widgets.dart';
 
 import 'package:flutter/material.dart';
