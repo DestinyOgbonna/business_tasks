@@ -7,7 +7,6 @@ import 'dart:convert';
 
 
 class BusinessService {
-  final Dio _dio = Dio();
 
   Future<List<Business>> fetchBusinesses() async {
     try {

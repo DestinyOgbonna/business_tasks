@@ -35,7 +35,7 @@ class _BusinessSearchScreenState extends State<BusinessSearchScreen> {
       ),
       body: Column(
         children: [
-          SearchBarWidget(),
+         const SearchBarWidget(),
           const CategoryFilterWidget(),
           Expanded(
             child: _buildContent(),
