@@ -34,4 +34,18 @@ class Business {
       description: json['description'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'category': category,
+      'address': address,
+      'phone': phone,
+      'email': email,
+      'services': services,
+      'rating': rating,
+      'description': description,
+    };
+  }
 }
