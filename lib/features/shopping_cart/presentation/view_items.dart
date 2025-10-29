@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:busniess_search/features/business_card/theme_provider.dart';
 import 'package:busniess_search/features/shopping_cart/presentation/save_items.dart';
 import 'package:busniess_search/features/shopping_cart/presentation/shopping_cart.dart';
@@ -45,133 +46,136 @@ class ItemsListScreen extends StatelessWidget {
               );
             }
 
-            return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: BorderSide.strokeAlignCenter,
-                  crossAxisSpacing: 4,
-                  childAspectRatio: 0.74),
-              padding: const EdgeInsets.all(8),
-              itemCount: box.length,
-              itemBuilder: (context, index) {
-                final item = box.getAt(index);
-                if (item == null) return const SizedBox();
+            return SlideInUp(
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: BorderSide.strokeAlignCenter,
+                    crossAxisSpacing: 4,
+                    childAspectRatio: 0.74),
+                padding: const EdgeInsets.all(8),
+                itemCount: box.length,
+                itemBuilder: (context, index) {
+                  final item = box.getAt(index);
+                  if (item == null) return const SizedBox();
 
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ShoppingCartScreen(
-                          item: item,
-                          index: index,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Card(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        item.imagePath != null
-                            ? Stack(
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(bottom: 10),
-                                    width: double.infinity,
-                                    height: 150,
-                                    decoration: BoxDecoration(
-                                      color: Colors.red[200],
-                                      borderRadius: BorderRadius.circular(8),
-                                      image: DecorationImage(
-                                        image: FileImage(File(item.imagePath!)),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Positioned(
-                                      right: 0,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  AddEditItemScreen(
-                                                item: item,
-                                                index: index,
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                        child: Container(
-                                          margin: const EdgeInsets.all(8),
-                                          decoration: BoxDecoration(
-                                              color: Colors.black54,
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: const Icon(
-                                            Icons.edit_outlined,
-                                            color: Colors.white,
-                                            size: 15,
-                                          ),
-                                        ),
-                                      ))
-                                ],
-                              )
-                            : const Icon(Icons.shopping_bag, size: 50),
-                        //IMAGE
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            item.name,
-                            style: GoogleFonts.montserrat(
-                                fontWeight: FontWeight.bold, fontSize: 16),
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ShoppingCartScreen(
+                            item: item,
+                            index: index,
                           ),
                         ),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '\$${item.price.toStringAsFixed(2)}',
-                                style: GoogleFonts.montserrat(
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                      );
+                    },
+                    child: Card(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          item.imagePath != null
+                              ? Stack(
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(bottom: 10),
+                                      width: double.infinity,
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red[200],
+                                        borderRadius: BorderRadius.circular(8),
+                                        image: DecorationImage(
+                                          image:
+                                              FileImage(File(item.imagePath!)),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                        right: 0,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    AddEditItemScreen(
+                                                  item: item,
+                                                  index: index,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            margin: const EdgeInsets.all(8),
+                                            decoration: BoxDecoration(
+                                                color: Colors.black54,
+                                                borderRadius:
+                                                    BorderRadius.circular(8)),
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: const Icon(
+                                              Icons.edit_outlined,
+                                              color: Colors.white,
+                                              size: 15,
+                                            ),
+                                          ),
+                                        ))
+                                  ],
+                                )
+                              : const Icon(Icons.shopping_bag, size: 50),
+                          //IMAGE
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              item.name,
+                              style: GoogleFonts.montserrat(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                _showDeleteDialog(context, index);
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(8)),
+                          ),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: const Icon(
-                                  Icons.delete_outlined,
-                                  color: Colors.red,
-                                  size: 18,
+                                child: Text(
+                                  '\$${item.price.toStringAsFixed(2)}',
+                                  style: GoogleFonts.montserrat(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                      ],
+                              GestureDetector(
+                                onTap: () {
+                                  _showDeleteDialog(context, index);
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.all(8),
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(8)),
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: const Icon(
+                                    Icons.delete_outlined,
+                                    color: Colors.red,
+                                    size: 18,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             );
           },
         ),

@@ -44,11 +44,11 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                         color: Colors.orange,
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                            image: AssetImage(
-                              widget.item?.imagePath ??
-                                  'assets/placeholder.png',
-                            ),
-                            fit: BoxFit.cover),
+                          image: AssetImage(
+                            widget.item?.imagePath ?? 'assets/placeholder.png',
+                          ),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
 
@@ -88,7 +88,9 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                         ],
                       ),
                     ),
+
                     const SizedBox(height: 20),
+
                     Container(
                       padding: const EdgeInsets.all(26),
                       width: double.infinity,
@@ -105,88 +107,97 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 150,
-                    ),
-                    Positioned(
-                      bottom: 0,
-                      child: GestureDetector(
-                        onTap: () {
-                          CustomToast.show(
-                              message:
-                                  'Mentor You rest kwanu. You say make we add to basket?',
-                              isError: false,
-                              context: context);
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 50,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.orange,
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Text(
-                            'Add to Basket',
-                            style: GoogleFonts.montserrat(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
+
+                    const SizedBox(height: 80),
+
+                    // Add to Basket Button (moved from Positioned to Column)
+                    GestureDetector(
+                      onTap: () {
+                        CustomToast.show(
+                          message:
+                              'Mentor You rest kwanu. You say make we add to basket?',
+                          isError: false,
+                          context: context,
+                        );
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          'Add to Basket',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
+
+                // Favorite Button - Positioned correctly as direct child of Stack
                 Positioned(
                   top: 255,
                   left: 0,
                   right: 0,
                   child: Center(
                     child: Container(
-                        alignment: Alignment.center,
-                        height: 48,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          color: Colors.orangeAccent,
-                          borderRadius: BorderRadius.circular(32),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 4,
-                          ),
+                      alignment: Alignment.center,
+                      height: 48,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.orangeAccent,
+                        borderRadius: BorderRadius.circular(32),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 4,
                         ),
-                        child: Text(
-                          'Favorite',
-                          style: GoogleFonts.montserrat(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white),
-                        )),
+                      ),
+                      child: Text(
+                        'Favorite',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
+
+                // Descriptions Button - Positioned correctly as direct child of Stack
                 Positioned(
                   top: 370,
                   left: 0,
                   right: 0,
                   child: Center(
                     child: Container(
-                        alignment: Alignment.center,
-                        height: 48,
-                        width: 130,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[100],
-                          borderRadius: BorderRadius.circular(32),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 4,
-                          ),
+                      alignment: Alignment.center,
+                      height: 48,
+                      width: 130,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(32),
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 4,
                         ),
-                        child: Text(
-                          'Descriptions',
-                          style: GoogleFonts.montserrat(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey),
-                        )),
+                      ),
+                      child: Text(
+                        'Descriptions',
+                        style: GoogleFonts.montserrat(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
