@@ -1,13 +1,9 @@
-
-
 import 'package:busniess_search/api/business_data.dart';
 import 'package:busniess_search/model/business_model.dart';
 import 'package:dio/dio.dart';
 import 'dart:convert';
 
-
 class BusinessService {
-
   Future<List<Business>> fetchBusinesses() async {
     try {
       final response = await _loadLocalJsonData();
@@ -19,7 +15,11 @@ class BusinessService {
   }
 
   Future<Response> _loadLocalJsonData() async {
-    await Future.delayed(const Duration(milliseconds: 800));
+    await Future.delayed(
+      const Duration(
+        seconds: 5,
+      ),
+    );
     return Response(
       data: BusinessData.jsonData,
       statusCode: 200,
@@ -29,7 +29,7 @@ class BusinessService {
 
   Future<List<Business>> searchBusinesses(String query) async {
     final businesses = await fetchBusinesses();
-    
+
     if (query.isEmpty) {
       return businesses;
     }
@@ -37,10 +37,10 @@ class BusinessService {
     final lowercaseQuery = query.toLowerCase();
     return businesses.where((business) {
       return business.name.toLowerCase().contains(lowercaseQuery) ||
-             business.category.toLowerCase().contains(lowercaseQuery) ||
-             business.description.toLowerCase().contains(lowercaseQuery) ||
-             business.services.any((service) => 
-               service.toLowerCase().contains(lowercaseQuery));
+          business.category.toLowerCase().contains(lowercaseQuery) ||
+          business.description.toLowerCase().contains(lowercaseQuery) ||
+          business.services
+              .any((service) => service.toLowerCase().contains(lowercaseQuery));
     }).toList();
   }
 }

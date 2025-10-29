@@ -7,18 +7,28 @@ environment:
   sdk: ">=3.4.3 <4.0.0"
 
 dependencies:
+  animate_do: null
+  carousel_slider: ^5.1.1
   cupertino_icons: ^1.0.6
   dio: ^5.9.0
   flutter:
     sdk: flutter
+  google_fonts: null
+  hive: ^2.2.3
+  image_picker: ^1.2.0
   provider: ^6.1.5+1
+  url_launcher: ^6.3.2
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.6  
 
 flutter:
   uses-material-design: true
   assets:
     - assets/data/
+    - assets/image/
